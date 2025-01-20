@@ -7,26 +7,38 @@ using namespace std;
 // User function template for C++
 class Solution {
   public:
-    bool twoSum(vector<int>& arr, int target) {
-        // code here
-        // map<int,int> a;
+    bool twoSum(vector<int>& nums, int target) {
+        // // code here
+        // // map<int,int> a;
+        // // for(int i=0;i<arr.size();i++){
+        // //     int b=arr[i];
+        // //     int n=target-b;
+        // //     if(a.find(n)!=a.end()){
+        // //         return true;
+        // //     }
+        // //     a[b]=i;
+        // // }
+        // // return false;
+        // set<int> a;
         // for(int i=0;i<arr.size();i++){
         //     int b=arr[i];
         //     int n=target-b;
         //     if(a.find(n)!=a.end()){
         //         return true;
         //     }
-        //     a[b]=i;
+        //     a.insert(b);
         // }
         // return false;
-        set<int> a;
-        for(int i=0;i<arr.size();i++){
-            int b=arr[i];
-            int n=target-b;
-            if(a.find(n)!=a.end()){
+        sort(nums.begin(),nums.end());
+        int i=0,j=nums.size()-1;
+        while(i<j){
+            if(nums[i]+nums[j]<target){
+                i++;
+            }else if(nums[i]+nums[j]>target){
+                --j;
+            }else{
                 return true;
             }
-            a.insert(b);
         }
         return false;
     }
