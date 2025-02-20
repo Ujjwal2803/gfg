@@ -13,18 +13,20 @@ class Solution {
     int getSecondLargest(vector<int> &arr) {
         // Code Here
         int max=arr[0];
-        for(int i=1;i<arr.size();i++){
+        for(int i=0;i<arr.size();i++){
             if(arr[i]>max){
                 max=arr[i];
             }
         }
-        int max2=-1;
+        int maxn=-1;
         for(int i=0;i<arr.size();i++){
-            if(arr[i]>max2 && arr[i]!=max){
-                max2=arr[i];
+            if( arr[i]!=max){
+                if(arr[i]>maxn){
+                    maxn=arr[i];
+                }
             }
         }
-        return max2;
+        return maxn;
     }
 };
 
