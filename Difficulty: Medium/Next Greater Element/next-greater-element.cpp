@@ -4,29 +4,43 @@ using namespace std;
 
 
 // } Driver Code Ends
+
 class Solution {
   public:
     // Function to find the next greater element for each element of the array.
     vector<int> nextLargerElement(vector<int>& arr) {
         // code here
-        vector<int>p;
-        stack<int>q;
-        for(int i=arr.size()-1;i>=0;i--){
-            while(q.size() && q.top()<=arr[i]){// monotonicity
-                q.pop();
+        // vector<int> res;
+        // for(int i=0;i<=arr.size()-1;i++){
+        //     bool found=false;
+        //     for(int j=i+1;j<=arr.size()-1;j++){
+        //         if(arr[j]>arr[i]){
+        //             res.push_back(arr[j]);
+        //             found=true;
+        //             break;
+        //         }
+        //     }
+        //     if(!found)res.push_back(-1);
+        // }
+        // return res;
+        int n=arr.size();
+        vector<int>ans(n,-1);
+        // vector<int>ans;
+        stack<int>p;
+        for(int i=n-1;i>=0;--i){
+            while(!p.empty() && p.top()<=arr[i]){
+                p.pop();
             }
-            if(q.size()==0){
-                p.push_back(-1);
-            }else{
-                p.push_back(q.top());
+            if(!p.empty()){
+                ans[i]=p.top();
             }
-            q.push(arr[i]);
+            p.push(arr[i]);
+            
         }
-        
-         reverse(p.begin(),p.end());
-         return p;
+        return ans;
     }
 };
+
 
 //{ Driver Code Starts.
 
