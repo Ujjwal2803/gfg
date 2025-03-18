@@ -22,7 +22,7 @@ class Solution {
         int sum=0;
         int maxn=INT_MIN;
         int i=0,j=k-1;
-        for(int k=i;k<=j;k++){
+        `for(int k=i;k<=j;k++){
             sum+=arr[k];
         }
         maxn=max(maxn,sum);
