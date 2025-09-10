@@ -6,12 +6,12 @@ class Solution {
         int n=arr.size();
         for(int i=0;i<n-1;i++){
             int smallest=i;
-            for(int j=i+1;j<n;j++){
-                if(arr[j]<arr[smallest]){
+            for(int j=i+1;j<=n-1;j++){
+                if(arr[smallest]>arr[j]){
                     smallest=j;
                 }
             }
-            swap(arr[i],arr[smallest]);
+            swap(arr[smallest],arr[i]);
         }
     }
 };
